@@ -1,12 +1,12 @@
 class SecretSantasController < ApplicationController
   def create
-    render(plain: "XXXXXX")
-    # @user = User.new(user_params)
-    # if @user.save
-    #   UserMailer.account_activation(@user).deliver_now
-    #   flash[:info] = "Please check your email to activate your account."
-    #   redirect_to root_url
-    # else
-    #   render 'new'
+    secret_santa_team = params[:secret_santa]
+    users = params[:users]
+    secret_santa = SecretSanta.create(group_name: secret_santa_team)
+    users.each do |user|
+      secret_santa.users.create(email: user[:email], name: user[:name])
+    end
+
+    head 201
     end
 end
