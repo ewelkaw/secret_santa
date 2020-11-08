@@ -7,6 +7,7 @@ class SecretSantasController < ApplicationController
       secret_santa.users.create(email: user[:email], name: user[:name])
     end
 
+    GenerateMatchingsJob.perform_later(secret_santa.id)
     head 201
     end
 end
