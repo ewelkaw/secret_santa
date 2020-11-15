@@ -10,35 +10,30 @@ Project consist of three services:
 ~/secret_santa/secret_santa_generator$ rerun -p "*.go" go run generator.go
 ```
 
-**Working with servis (test_secret_santa_gen_request.sh)**
-```bash
-## Request
-curl -X "POST" "http://localhost:8090/generate" \
-     -H 'Content-Type: text/plain; charset=utf-8' \
-     -d $'{
-  "names": [
-    "Ann",
-    "Ed",
-    "Monica",
-    "Zoe",
-    "Frank"
-  ]
-}'
-```
+**Example request to servis `test_secret_santa_gen_request.sh`**
+
 
 2. Users app (RUBY)
 ```bash
 ~/secret_santa/user_app$ rails s
 ```
 
+**Example request to servis `test_secret_santa_main_request.sh`**
+
 3. PDF generator (PYTHON)
 
-We need to install two libraries:
-- http://macappstore.org/wkhtmltopdf/
-- pdfkit
+Servis will return PDF encoded as base64
+
+We need to install:
+- https://weasyprint.readthedocs.io/en/stable/index.html
+- pip install WeasyPrint
+- brew install cairo
+- brew install pango
 
 docs: `http://127.0.0.1:8000/docs`
 
 ```bash
 ~/secret_santa/pdf_generator$ uvicorn main:app --reload
 ```
+
+**Example request to servis `test_generate_pdf.sh`**
