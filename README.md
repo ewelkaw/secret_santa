@@ -15,8 +15,10 @@ Project consist of three services:
 
 2. Users app (RUBY)
 ```bash
-~/secret_santa/user_app$ rails s
+~/secret_santa/users_app$ rails s
 ```
+
+debug: byebug
 
 **Example request to servis `test_secret_santa_main_request.sh`**
 
