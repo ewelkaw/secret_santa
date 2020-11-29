@@ -19,6 +19,7 @@ Project consist of three services:
 ```
 
 debug: byebug
+testing mails (mailcatcher): http://localhost:1080
 
 **Example request to servis `test_secret_santa_main_request.sh`**
 
