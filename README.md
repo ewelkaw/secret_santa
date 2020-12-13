@@ -22,6 +22,8 @@ debug: byebug
 testing mails (mailcatcher): http://localhost:1080
 
 **Example request to servis `test_secret_santa_main_request.sh`**
+**To get to app from frontend `http://127.0.0.1:3000/`**
+
 
 3. PDF generator (PYTHON)
 
@@ -40,3 +42,5 @@ docs: `http://127.0.0.1:8000/docs`
 ```
 
 **Example request to servis `test_generate_pdf.sh`**
+
+4. Frontend (JAVASCRIPT)
