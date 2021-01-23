@@ -1,25 +1,27 @@
-<html>
-  <head>
-    <title>Secret Santa</title>
-    <meta charset="utf-8">
-  </head>
-  <body style="margin: 50px auto; width: 700px; padding: 30px; background-color: #e3b3b6;">
-    <header>
-      <h1 style="text-align: center; margin: 50px auto;">Ho Ho Ho </h1>
-      <h3 style="text-align: center; margin: 50px auto;">Do you want to create your own Secret Santa Group?</h3>
-    </header>
+<header>
+  <h1 class="main-header">Ho Ho Ho </h1>
+  <h3 style="text-align: center; margin: 50px auto;">Do you want to create your own Secret Santa Group?</h3>
+</header>
 
-    <div>
-      <p style="width: 700px; margin: 20px auto; padding: 30px;
-    background-color: #e6e8e6;">
-    <strong><label for="name">Secret Santa Group Name:</label></strong>
-    <input type="text" id="name" name="name" required> <br><br>
-    <label for="name">Participant name:</label>
-    <input type="text" id="name" name="name" required>
-      <label for="name">Participant email:</label>
-    <input type="email" id="email" name="email" required>
-      </p>
+<div data-controller="santa">
+  <script type="x-tmpl-mustache" data-santa-target="template">
+    <div data-santa-target="participant">
+      <label for="name-{{id}}">Participant name:</label>
+      <input type="text" name="name" id="name-{{id}}" required>
+      <label for="email-{{id}}">Participant email:</label>
+      <input type="email" name="email" id="email-{{id}}" required>
+      <br />
     </div>
+  </script>
 
-  </body>
-</html>
+  <p style="width: 700px; margin: 20px auto; padding: 30px;background-color: #e6e8e6;">
+    <strong>
+      <label for="name">Secret Santa Group Name:</label>
+    </strong>
+    <input type="text" id="name" name="name" required data-santa-target="groupName">
+    <br />
+    <div data-santa-target="participants"></div>
+  </p>
+  <a href="#" data-action="santa#add">+</a>
+  <button data-action="santa#submit">Submit</button>
+</div>
